@@ -69,7 +69,7 @@ public class VC {
 
         List<String> list = new ArrayList<>();
 
-        list.add("Select");
+        list.add("....");
         Collection<String> coll = data.get(district);
         for (String item : coll) {
             list.add(item);
