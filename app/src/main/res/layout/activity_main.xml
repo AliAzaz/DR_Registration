@@ -145,15 +145,16 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:gravity="center"
-                                android:text="Enrolment and Household SES - Population Survey"
+                                android:text="Providers Enrollment"
                                 android:textColor="@color/colorPrimaryDark" />
 
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:layout_gravity="center"
+                                android:scaleType="fitXY"
                                 android:layout_marginTop="5dp"
-                                android:src="@drawable/house" />
+                                android:src="@drawable/providers" />
 
                         </LinearLayout>
 
@@ -169,6 +170,7 @@
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
                         android:layout_weight="1"
                         android:clickable="true"
+                        android:visibility="gone"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:onClick='@{(v) -> callback.openForm("1b")}'>
 
@@ -206,7 +208,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
 
                     <android.support.v7.widget.CardView
@@ -292,7 +295,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
 
                     <android.support.v7.widget.CardView
@@ -378,7 +382,8 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
 
                     <android.support.v7.widget.CardView
@@ -504,17 +509,12 @@
                         android:layout_width="20dp"
                         android:layout_height="match_parent" />
 
-                    <LinearLayout
-                        android:id="@+id/adminsec"
-                        android:layout_width="0dp"
-                        android:layout_height="120dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
                         <android.support.v7.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:id="@+id/adminsec"
+                            android:layout_width="0dp"
+                            android:layout_height="120dp"
                             android:layout_margin="@dimen/cardview_compat_inset_shadow"
+                            android:layout_weight="1"
                             android:onClick="@{() -> callback.openDB()}">
 
                             <LinearLayout
@@ -543,7 +543,6 @@
                             </LinearLayout>
 
                         </android.support.v7.widget.CardView>
-                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -556,7 +555,7 @@
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="16dp"
                     android:background="@color/colorPrimary"
-                    android:text="Enrolment and Household SES - Population Survey"
+                    android:text="Providers Registration"
 
                     android:textColor="@color/white"
                     android:visibility="gone" />

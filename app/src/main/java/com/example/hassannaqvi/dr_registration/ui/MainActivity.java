@@ -27,7 +27,6 @@ import android.widget.Toast;
 import com.example.hassannaqvi.dr_registration.R;
 import com.example.hassannaqvi.dr_registration.contracts.FormsContract;
 import com.example.hassannaqvi.dr_registration.core.AndroidDatabaseManager;
-import com.example.hassannaqvi.dr_registration.core.CONSTANTS;
 import com.example.hassannaqvi.dr_registration.core.MainApp;
 import com.example.hassannaqvi.dr_registration.databinding.ActivityMainBinding;
 import com.example.hassannaqvi.dr_registration.sync.SyncAllData;
@@ -42,7 +41,6 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 import im.dino.dbinspector.activities.DbInspectorActivity;
 
@@ -214,7 +212,7 @@ public class MainActivity extends Activity {
     }
 
     public void openForm(String fType) {
-        final Intent oF = new Intent(MainActivity.this, InfoActivity.class);
+        final Intent oF = new Intent(MainActivity.this, Providers_Enrollment.class);
 
         if (sharedPref.getString("tagName", null) != "" && sharedPref.getString("tagName", null) != null && !MainApp.userName.equals("0000")) {
             startActivity(oF);
@@ -465,7 +463,7 @@ public class MainActivity extends Activity {
 
     public void openA(View v) {
 
-//        startActivity1(SectionAActivity.class);
+        startActivity1(Providers_Enrollment.class);
 
     }
 

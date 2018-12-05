@@ -1337,8 +1337,8 @@
     <string name="tvWorking">Q: Number of Health Facilities working currently?</string>
     <string name="edWorking">Number of Facilities</string>
 
-    <string-array name="sp_pro">
-        <item>Select</item>
+    <string-array name="spProvince">
+        <item>....</item>
         <item>Sindh</item>
         <item>Balochistan</item>
         <item>Punjab</item>

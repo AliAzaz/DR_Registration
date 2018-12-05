@@ -711,7 +711,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
         finish();
 
-        Intent im = new Intent(LoginActivity.this, Providers_Enrollment.class);
+        Intent im = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(im);
     }
 
@@ -780,7 +780,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
                     finish();
 
-                    Intent iLogin = new Intent(LoginActivity.this, Providers_Enrollment.class);
+                    Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(iLogin);
 
                 } else {
