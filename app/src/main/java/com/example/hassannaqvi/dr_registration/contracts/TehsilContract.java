@@ -59,7 +59,5 @@ public class TehsilContract {
         public static final String TABLE_NAME = "tehsils";
         public static final String COLUMN_TEHSIL_CODE = "tehsil_code";
         public static final String COLUMN_TEHSIL_NAME = "tehsil_name";
-
-        public static final String _URI = "tehsils.php";
     }
 }

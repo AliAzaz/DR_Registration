@@ -42,7 +42,6 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 import im.dino.dbinspector.activities.DbInspectorActivity;
 
@@ -350,7 +349,7 @@ public class MainActivity extends Activity {
                         "Forms",
                         "updateSyncedForms",
                         FormsContract.class,
-                        MainApp._HOST_URL + FormsContract.FormsTable._URL,
+                        MainApp._HOST_URL + CONSTANTS.URL_FORMS,
                         db.getUnsyncedForms()
                 ).execute();
 

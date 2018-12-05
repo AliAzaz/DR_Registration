@@ -109,7 +109,5 @@ public class VillagesContract {
         public static final String COLUMN_UC_CODE = "uc_code";
         //        public static final String COLUMN_TEHSIL_NAME = "tehsil_name";
         public static final String COLUMN_VILLAGE_CODE = "village_code";
-
-        public static final String _URI = "villages.php";
     }
 }

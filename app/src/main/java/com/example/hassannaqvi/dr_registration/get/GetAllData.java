@@ -96,8 +96,8 @@ public class GetAllData extends AsyncTask<String, String, String> {
                         case "User":
                             db.syncUsers(jsonArray);
                             break;
-                        case "Clusters":
-                            db.syncClusters(jsonArray);
+                        case "LHW":
+                            db.syncLHWS(jsonArray);
                             break;
                     }
 

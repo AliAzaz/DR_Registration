@@ -86,8 +86,5 @@ public class UsersContract {
         public static final String _ID = "id";
         public static final String ROW_USERNAME = "username";
         public static final String ROW_PASSWORD = "password";
-
-
-        public static final String _URI = "getusers.php";
     }
 }
