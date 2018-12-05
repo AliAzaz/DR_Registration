@@ -9,12 +9,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.hassannaqvi.dr_registration.contracts.*;
-import com.example.hassannaqvi.dr_registration.contracts.UsersContract.UsersTable;
+import com.example.hassannaqvi.dr_registration.contracts.FormsContract;
 import com.example.hassannaqvi.dr_registration.contracts.FormsContract.FormsTable;
+import com.example.hassannaqvi.dr_registration.contracts.LHWsContract;
 import com.example.hassannaqvi.dr_registration.contracts.LHWsContract.singleLHWs;
+import com.example.hassannaqvi.dr_registration.contracts.TehsilContract;
 import com.example.hassannaqvi.dr_registration.contracts.TehsilContract.singleTehsil;
+import com.example.hassannaqvi.dr_registration.contracts.UCsContract;
 import com.example.hassannaqvi.dr_registration.contracts.UCsContract.singleUCs;
+import com.example.hassannaqvi.dr_registration.contracts.UsersContract;
+import com.example.hassannaqvi.dr_registration.contracts.UsersContract.UsersTable;
+import com.example.hassannaqvi.dr_registration.contracts.VillagesContract;
 import com.example.hassannaqvi.dr_registration.contracts.VillagesContract.singleVillages;
 
 import org.json.JSONArray;
@@ -43,21 +48,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_SURVEYTYPE + " TEXT," +
             FormsTable.COLUMN_UID + " TEXT," +
             FormsTable.COLUMN_FORMDATE + " TEXT," +
-            FormsTable.COLUMN_INTERVIEWER01 + " TEXT," +
-            FormsTable.COLUMN_INTERVIEWER02 + " TEXT," +
+            FormsTable.COLUMN_USER + " TEXT," +
             FormsTable.COLUMN_ISTATUS + " TEXT," +
             FormsTable.COLUMN_ISTATUS88X + " TEXT," +
             FormsTable.COLUMN_SA + " TEXT," +
-            FormsTable.COLUMN_SC + " TEXT," +
-            FormsTable.COLUMN_SDEF + " TEXT," +
-            FormsTable.COLUMN_SGH + " TEXT," +
-            FormsTable.COLUMN_SI + " TEXT," +
-            FormsTable.COLUMN_SJ + " TEXT," +
-            FormsTable.COLUMN_SK + " TEXT," +
-            FormsTable.COLUMN_SL + " TEXT," +
-            FormsTable.COLUMN_SM + " TEXT," +
-            FormsTable.COLUMN_SNOP + " TEXT," +
-            FormsTable.COLUMN_COUNT + " TEXT," +
+            FormsTable.COLUMN_SNO + " TEXT," +
             FormsTable.COLUMN_ENDINGDATETIME + " TEXT," +
             FormsTable.COLUMN_GPSLAT + " TEXT," +
             FormsTable.COLUMN_GPSLNG + " TEXT," +
@@ -70,7 +65,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             FormsTable.COLUMN_SYNCED_DATE + " TEXT," +
             FormsTable.COLUMN_APPVERSION + " TEXT"
             + " );";
-
 
     private static final String SQL_DELETE_USERS =
             "DROP TABLE IF EXISTS " + UsersTable.TABLE_NAME;
@@ -356,11 +350,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void syncClusters(JSONArray Clusterslist) {
+    public void syncLHWS(JSONArray lhwsList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(singleLHWs.TABLE_NAME, null, null);
         try {
-            JSONArray jsonArray = Clusterslist;
+            JSONArray jsonArray = lhwsList;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObjectCC = jsonArray.getJSONObject(i);
 
@@ -516,20 +510,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SURVEYTYPE, fc.getSurveyType());
         values.put(FormsTable.COLUMN_UID, fc.getUID());
         values.put(FormsTable.COLUMN_FORMDATE, fc.getFormDate());
-        values.put(FormsTable.COLUMN_INTERVIEWER01, fc.getInterviewer01());
-        values.put(FormsTable.COLUMN_INTERVIEWER02, fc.getInterviewer02());
+        values.put(FormsTable.COLUMN_USER, fc.getUser());
         values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
         values.put(FormsTable.COLUMN_ISTATUS88X, fc.getIstatus88x());
         values.put(FormsTable.COLUMN_SA, fc.getsA());
-        values.put(FormsTable.COLUMN_SC, fc.getsC());
-        values.put(FormsTable.COLUMN_SDEF, fc.getsDEF());
-        values.put(FormsTable.COLUMN_SGH, fc.getsGH());
-        values.put(FormsTable.COLUMN_SI, fc.getsI());
-        values.put(FormsTable.COLUMN_SJ, fc.getsJ());
-        values.put(FormsTable.COLUMN_SK, fc.getsK());
-        values.put(FormsTable.COLUMN_SL, fc.getsL());
-        values.put(FormsTable.COLUMN_SM, fc.getsM());
-        values.put(FormsTable.COLUMN_SNOP, fc.getsNOP());
         values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
         values.put(FormsTable.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(FormsTable.COLUMN_GPSLNG, fc.getGpsLng());
@@ -599,21 +583,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_ID,
                 FormsTable.COLUMN_UID,
                 FormsTable.COLUMN_FORMDATE,
-                FormsTable.COLUMN_INTERVIEWER01,
-                FormsTable.COLUMN_INTERVIEWER02,
+                FormsTable.COLUMN_USER,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_ISTATUS88X,
                 FormsTable.COLUMN_SA,
-                FormsTable.COLUMN_SC,
-                FormsTable.COLUMN_SDEF,
-                FormsTable.COLUMN_SGH,
-                FormsTable.COLUMN_SI,
-                FormsTable.COLUMN_SJ,
-                FormsTable.COLUMN_SK,
-                FormsTable.COLUMN_SL,
-                FormsTable.COLUMN_SM,
-                FormsTable.COLUMN_SNOP,
-                FormsTable.COLUMN_COUNT,
+                FormsTable.COLUMN_SNO,
                 FormsTable.COLUMN_ENDINGDATETIME,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,

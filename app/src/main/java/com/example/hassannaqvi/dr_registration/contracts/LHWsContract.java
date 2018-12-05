@@ -64,6 +64,5 @@ public class LHWsContract {
         public static final String COLUMN_HF_CODE = "hf_code";
         public static final String COLUMN_LHW_CODE = "lhw_code";
 
-        public static final String _URI = "lhws.php";
     }
 }

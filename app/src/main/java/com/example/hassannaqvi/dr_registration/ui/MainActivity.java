@@ -348,7 +348,7 @@ public class MainActivity extends Activity {
                         "Forms",
                         "updateSyncedForms",
                         FormsContract.class,
-                        MainApp._HOST_URL + FormsContract.FormsTable._URL,
+                        MainApp._HOST_URL + CONSTANTS.URL_FORMS,
                         db.getUnsyncedForms()
                 ).execute();
 
