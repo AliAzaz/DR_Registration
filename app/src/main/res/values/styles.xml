@@ -228,6 +228,7 @@
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="textViewCenterGravity">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -236,7 +237,6 @@
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:gravity">center</item>
-
     </style>
 
     <style name="textView2">
@@ -261,6 +261,120 @@
         <item name="android:textSize">25sp</item>
     </style>
     <!--Button View End-->
+
+
+    <!-- Q_Linerlayout_v   starts. -->
+    <style name="Q_Linerlayout_v">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
+    </style>
+    <!-- Q_Linerlayout_v   Ends. -->
+
+    <!-- TextViewHead   starts. -->
+    <style name="TextViewHead">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- TextViewHead   Ends. -->
+
+    <style name="RadioGroup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="EditText_Name">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:digits">[a-zA-Z ]+ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+        </item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:singleLine">true</item>
+
+        <item name="android:focusable">true</item>
+
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+
+    <style name="RadioButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:gravity">start</item>
+    </style>
+
+
+    <style name="Q_Header_linerlayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:background">#D4D4D4</item>
+
+    </style>
+
+
+    <!-- TextView   Starts. -->
+    <style name="TextView">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+
+        <item name="android:focusable">true</item>
+
+        <item name="android:clickable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+
+        <item name="android:typeface">normal</item>
+
+    </style>
+
+
+    <style name="Button_Next">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">17sp</item>
+        <!-- <item name="android:stateListAnimator">@null</item> !-->
+        <item name="android:background">@color/colorPrimaryAlpha</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="Button_collder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <!-- <item name="android:stateListAnimator">@null</item> !-->
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>
 

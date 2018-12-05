@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.hassannaqvi.dr_registration.ui.Providers_Enrollment">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.example.hassannaqvi.dr_registration.ui.Providers_Enrollment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- Login progress -->
+
+        <TextView
+            android:id="@+id/testing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/ticker_red"
+            android:elevation="6dp"
+            android:gravity="center_horizontal"
+            android:keepScreenOn="true"
+            android:padding="4dp"
+            android:text="ONLY FOR TESTING"
+            android:textColor="@color/dullWhile"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:id="@+id/activity_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="50dp">
+
+                <TextView
+                    android:id="@+id/lblheader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/dullWhile"
+                    android:text="Message!!!"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_enroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="10dp"
+                    android:text="Enrollment Form"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/recordSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/black"
+                    android:padding="20dp"
+                    android:text="Records Summary"
+                    android:textColor="@color/green"
+                    android:textSize="14sp"
+                    android:typeface="monospace" />
+
+                <LinearLayout
+                    android:id="@+id/fldgrppe01"
+                    style="@style/Q_Linerlayout_v">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <LinearLayout
+                            android:id="@+id/ll_providers"
+                            style="@style/Q_Linerlayout_v">
+
+                            <TextView
+                                style="@style/TextViewHead"
+                                android:text="Health Provider's Information"
+                                android:textAlignment="center" />
+
+                            <TextView
+                                style="@style/TextView"
+                                android:layout_marginTop="10sp"
+                                android:text="@string/PMDC_no" />
+
+                            <com.santalu.widget.MaskEditText
+                                android:id="@+id/ed_pmdc_no"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="12345-A"
+                                android:inputType="textEmailAddress"
+                                app:met_mask="#####-#" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_providers2"
+                            style="@style/Q_Linerlayout_v">
+
+                            <EditText
+                                android:id="@+id/ed_name"
+                                style="@style/EditText"
+                                android:layout_marginTop="20dp"
+                                android:hint="Provider's Name" />
+
+
+                            <EditText
+                                android:id="@+id/ed_qualification"
+                                style="@style/EditText"
+                                android:hint="Highest Qualification" />
+
+                            <EditText
+                                android:id="@+id/ed_mobile_no"
+                                style="@style/EditText_number"
+                                android:hint="Mobile Number"
+                                android:inputType="phone"
+                                android:maxLength="11" />
+
+                            <EditText
+                                android:id="@+id/ed_email"
+                                style="@style/EditText"
+                                android:hint="Email"
+                                android:inputType="textEmailAddress" />
+
+                            <EditText
+                                android:id="@+id/ed_address"
+                                style="@style/EditText"
+                                android:hint="Address" />
+
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cvGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+                        <LinearLayout
+                            android:id="@+id/llGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvGender"
+                                style="@style/TextView"
+                                android:text="@string/tvGender" />
+
+
+                            <RadioGroup
+                                android:id="@+id/rgGender"
+                                style="@style/RadioGroup">
+
+                                <RadioButton
+                                    android:id="@+id/rbMale"
+                                    style="@style/RadioButton"
+                                    android:text="@string/rbMale" />
+
+                                <RadioButton
+                                    android:id="@+id/rbFemale"
+                                    style="@style/RadioButton"
+                                    android:text="@string/rbFemale" />
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cv4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+                        <LinearLayout style="@style/Q_Linerlayout_v">
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_province"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5sp"
+                                android:background="@color/hitnscolor"
+                                android:weightSum="2">
+
+                                <TextView
+                                    style="@style/TextView"
+                                    android:layout_weight="1"
+                                    android:text="Province"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/ed_province"
+                                    style="@style/EditText_Name"
+                                    android:layout_weight="1"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_district"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5sp"
+                                android:background="@color/hitnscolor"
+                                android:weightSum="2">
+
+                                <TextView
+                                    style="@style/TextView"
+                                    android:layout_weight="1"
+                                    android:text="District"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/ed_district"
+                                    style="@style/EditText_Name"
+                                    android:layout_weight="1"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/ll_tehsil"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5sp"
+                                android:background="@color/hitnscolor"
+                                android:weightSum="2">
+
+                                <TextView
+                                    style="@style/TextView"
+                                    android:layout_weight="1"
+                                    android:text="Village/City"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/ed_vc"
+                                    style="@style/EditText_Name"
+                                    android:layout_weight="1"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cvConsent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+                        <LinearLayout
+                            android:id="@+id/llConsent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvConsent"
+                                style="@style/TextView"
+                                android:text="@string/tvConsent" />
+
+                            <RadioGroup
+                                android:id="@+id/rgConsent"
+                                style="@style/RadioGroup">
+
+                                <RadioButton
+                                    android:id="@+id/rbYes"
+                                    style="@style/RadioButton"
+                                    android:text="@string/rbYes" />
+
+                                <RadioButton
+                                    android:id="@+id/rbNo"
+                                    style="@style/RadioButton"
+                                    android:text="@string/rbNo" />
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/cvWorking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+
+                        <LinearLayout
+                            android:id="@+id/llWorking"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:layout_margin="5dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvWorking"
+                                style="@style/TextView"
+                                android:text="@string/tvWorking" />
+
+                            <EditText
+                                android:id="@+id/edWorking"
+                                style="@style/EditText_number"
+                                android:hint="@string/edWorking"
+                                android:maxLength="1" />
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <!--<LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <Button
+                        android:id="@+id/syncDevice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/colorPrimary"
+                        android:onClick="syncDevice"
+                        android:text="Download Data"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/downloadApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/red"
+                        android:text="DOWNLOAD APP"
+                        android:textColor="@color/white"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/updateApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/colorPrimary"
+                        android:onClick="updateApp"
+                        android:text="Update App"
+                        android:textColor="@color/white"
+                        android:visibility="gone" />
+
+                    &lt;!&ndash;<Button
+                        android:id="@+id/openDB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="16dp"
+                        android:onClick="openDB"
+                        android:text="Open Database Manager" />&ndash;&gt;
+
+                    <Button
+                        android:id="@+id/testGPS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="16dp"
+                        android:onClick="testGPS"
+                        android:text="Test GPS Coordinates" />
+                </LinearLayout>-->
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp">
+
+                    <Button
+                        android:id="@+id/btn_pr_submit"
+                        style="@style/Button_Next"
+                        android:layout_margin="10dp"
+                        android:onClick="@{() -> callback.BtnContinue()}"
+                        android:text="Submit" />
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

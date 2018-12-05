@@ -59,13 +59,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -113,15 +111,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         try {
             long installedOn = this
                     .getPackageManager()
-                    .getPackageInfo("com.example.hassannaqvi.leaps_scaleup", 0)
+                    .getPackageInfo("com.example.hassannaqvi.dr_registration", 0)
                     .lastUpdateTime;
             Integer versionCode = this
                     .getPackageManager()
-                    .getPackageInfo("com.example.hassannaqvi.leaps_scaleup", 0)
+                    .getPackageInfo("com.example.hassannaqvi.dr_registration", 0)
                     .versionCode;
             String versionName = this
                     .getPackageManager()
-                    .getPackageInfo("com.example.hassannaqvi.leaps_scaleup", 0)
+                    .getPackageInfo("com.example.hassannaqvi.dr_registration", 0)
                     .versionName;
             bi.txtinstalldate.setText("Ver. " + versionName + "." + String.valueOf(versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
 
@@ -713,7 +711,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
         finish();
 
-        Intent im = new Intent(LoginActivity.this, MainActivity.class);
+        Intent im = new Intent(LoginActivity.this, Providers_Enrollment.class);
         startActivity(im);
     }
 
@@ -782,7 +780,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
                     finish();
 
-                    Intent iLogin = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent iLogin = new Intent(LoginActivity.this, Providers_Enrollment.class);
                     startActivity(iLogin);
 
                 } else {

@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="com.example.hassannaqvi.dr_registration.core.MainApp"
+        android:name=".core.MainApp"
         android:allowBackup="true"
         android:icon="@drawable/agakhan"
         android:label="@string/app_name"
@@ -27,7 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.hassannaqvi.dr_registration.ui.SplashscreenActivity"
+            android:name=".ui.SplashscreenActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.hassannaqvi.dr_registration.ui.LoginActivity"
+            android:name=".ui.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name="im.dino.dbinspector.activities.DbInspectorActivity">
             <intent-filter tools:node="removeAll">
@@ -46,20 +46,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.hassannaqvi.dr_registration.core.AndroidDatabaseManager"
+            android:name=".core.AndroidDatabaseManager"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.hassannaqvi.dr_registration.ui.EndingActivity"
+            android:name=".ui.EndingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
         <activity
-            android:name="com.example.hassannaqvi.dr_registration.ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.hassannaqvi.dr_registration.ui.InfoActivity"
+            android:name=".ui.InfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
-
+        <activity android:name=".ui.Providers_Enrollment"></activity>
     </application>
 
 </manifest>

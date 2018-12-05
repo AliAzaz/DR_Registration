@@ -30,5 +30,8 @@
     <color name="dullWhile">#d6d6d6</color>
     <color name="dullWhileOverlay">#99d6d6d6</color>
 
+    <color name="hitnscolor">#e1e1e1</color>
+    <color name="hitnscolor1">#DCDCDC</color>
+
 
 </resources>

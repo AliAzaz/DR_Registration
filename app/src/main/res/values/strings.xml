@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LEAPS Scale up</string>
+    <string name="app_name">Providers Registration</string>
 
     <!--copied Strings for splash, login and main screen-->
     <string name="action_sign_in_short">Sign in</string>
@@ -16,10 +16,11 @@
     <string name="dkn"> خبر ناهي </string>-->
 
     <string name="seconds">Seconds</string>
-
-    <string name="yes"> ھا </string>
-    <string name="no"> نہ </string>
-    <string name="dkn"> خبر نه آھي </string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="rbYes">Yes</string>
+    <string name="rbNo">No</string>
+    <string name="dkn">Don\'t Know</string>
     <string name="not_applicable">	غير موضوع</string>
     <string name="sometimes">	ڪڏهن ڪڏهن   </string>
 
@@ -1328,6 +1329,21 @@
     <string name="lsyid05">فيميل يوٿ جي ٽيسٽ ڪهڙي رائونڊ ۾  ٿي</string>
     <string name="lsyid06">فيميل يوٿ جي ٽيسٽ ڪهڙي رائونڊ ۾  ٿي</string>
     <string name="lsyid07">فيميل يوٿ جي ٽيسٽ ڪهڙي رائونڊ ۾  ٿي</string>
+    <string name="PMDC_no">Valid PMDC Number</string>
+    <string name="tvGender">Providers Gender</string>
+    <string name="rbMale">Male</string>
+    <string name="rbFemale">Female</string>
+    <string name="tvConsent">Q: Has the doctor signed written consent form?</string>
+    <string name="tvWorking">Q: Number of Health Facilities working currently?</string>
+    <string name="edWorking">Number of Facilities</string>
+
+    <string-array name="sp_pro">
+        <item>Select</item>
+        <item>Sindh</item>
+        <item>Balochistan</item>
+        <item>Punjab</item>
+
+    </string-array>
 
 
 </resources>
