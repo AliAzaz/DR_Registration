@@ -54,7 +54,11 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
                     b.show();
 
                     Spinner spProvince = v.findViewById(R.id.spProvinceHF);
-                    spProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    Spinner spDistrict = v.findViewById(R.id.spDistrict);
+                    Spinner spUC = v.findViewById(R.id.spUC);
+                    Spinner spFacilityName = v.findViewById(R.id.spFacilityName);
+
+                    Spinner.OnItemSelectedListener spx = new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -64,8 +68,12 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
                         public void onNothingSelected(AdapterView<?> adapterView) {
 
                         }
-                    });
+                    };
 
+                    spProvince.setOnItemSelectedListener(spx);
+                    spDistrict.setOnItemSelectedListener(spx);
+                    spUC.setOnItemSelectedListener(spx);
+                    spFacilityName.setOnItemSelectedListener(spx);
 
                    /* bi.spProvince.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) dataDistricts);{
 
