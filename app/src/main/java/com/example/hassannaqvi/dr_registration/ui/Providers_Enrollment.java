@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.hassannaqvi.dr_registration.JSON.GeneratorClass;
@@ -51,6 +52,19 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
                     b.setView(v);
                     b.setCancelable(true);
                     b.show();
+
+                    Spinner spProvince = v.findViewById(R.id.spProvinceHF);
+                    spProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> adapterView) {
+
+                        }
+                    });
 
 
                    /* bi.spProvince.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) dataDistricts);{
