@@ -53,8 +53,9 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
                     b.setCancelable(true);
                     b.show();
 
-                    Spinner spProvince = v.findViewById(R.id.spProvinceHF);
-                    Spinner spDistrict = v.findViewById(R.id.spDistrict);
+                    Spinner spProvinceHF = v.findViewById(R.id.spProvinceHF);
+                    Spinner spDistrictHF = v.findViewById(R.id.spDistrictHF);
+                    Spinner spTehsilHF = v.findViewById(R.id.spTehsilHF);
                     Spinner spUC = v.findViewById(R.id.spUC);
                     Spinner spFacilityName = v.findViewById(R.id.spFacilityName);
 
@@ -70,8 +71,9 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
                         }
                     };
 
-                    spProvince.setOnItemSelectedListener(spx);
-                    spDistrict.setOnItemSelectedListener(spx);
+                    spProvinceHF.setOnItemSelectedListener(spx);
+                    spDistrictHF.setOnItemSelectedListener(spx);
+                    spTehsilHF.setOnItemSelectedListener(spx);
                     spUC.setOnItemSelectedListener(spx);
                     spFacilityName.setOnItemSelectedListener(spx);
 
