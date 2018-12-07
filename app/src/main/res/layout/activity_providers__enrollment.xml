@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10sp"
                     app:cardCornerRadius="8dp"
+                    android:visibility="gone"
                     app:cardElevation="8dp">
 
                     <LinearLayout
@@ -100,7 +101,7 @@
                             <EditText
                                 android:id="@+id/edDesignation"
                                 style="@style/EditText"
-                                android:hint="MO, RMO, Nurse" />
+                                android:hint="Designation i.e: MO, RMO.." />
 
                             <EditText
                                 android:id="@+id/ed_mobile_no"
@@ -154,12 +155,12 @@
 
                                 <RadioButton
                                     android:id="@+id/rbMale"
-                                    style="@style/RadioButton"
+                                    style="@style/radiobutton"
                                     android:text="@string/rbMale" />
 
                                 <RadioButton
                                     android:id="@+id/rbFemale"
-                                    style="@style/RadioButton"
+                                    style="@style/radiobutton"
                                     android:text="@string/rbFemale" />
 
                             </RadioGroup>
@@ -243,12 +244,12 @@
                                     android:text="Village/City"
                                     android:textStyle="bold" />
 
-                                <Spinner
-                                    android:id="@+id/spVC"
-                                    style="@style/EditText_Name"
+                                <EditText
+                                    android:id="@+id/edVC"
+                                    style="@style/EditText_varchar"
                                     android:layout_weight="1"
                                     android:background="@color/hitnscolor1"
-                                    android:hint="select"
+                                    android:hint="Village or City Name"
                                     android:textStyle="bold" />
 
                             </LinearLayout>
@@ -286,12 +287,12 @@
 
                                 <RadioButton
                                     android:id="@+id/rbYes"
-                                    style="@style/RadioButton"
+                                    style="@style/radiobutton"
                                     android:text="@string/rbYes" />
 
                                 <RadioButton
                                     android:id="@+id/rbNo"
-                                    style="@style/RadioButton"
+                                    style="@style/radiobutton"
                                     android:text="@string/rbNo" />
 
                             </RadioGroup>
@@ -395,6 +396,7 @@
                     android:id="@+id/cv7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 

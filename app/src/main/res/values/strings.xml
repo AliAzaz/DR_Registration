@@ -1338,7 +1338,7 @@
     <string name="edWorking">Number of Facilities</string>
 
     <string-array name="spProvince">
-        <item>....</item>
+        <item>select</item>
         <item>Sindh</item>
         <item>Balochistan</item>
         <item>Punjab</item>

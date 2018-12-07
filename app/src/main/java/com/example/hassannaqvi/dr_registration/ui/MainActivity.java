@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.example.hassannaqvi.dr_registration.R;
 import com.example.hassannaqvi.dr_registration.contracts.FormsContract;
 import com.example.hassannaqvi.dr_registration.core.AndroidDatabaseManager;
+import com.example.hassannaqvi.dr_registration.core.CONSTANTS;
 import com.example.hassannaqvi.dr_registration.core.MainApp;
 import com.example.hassannaqvi.dr_registration.databinding.ActivityMainBinding;
 import com.example.hassannaqvi.dr_registration.sync.SyncAllData;
@@ -85,10 +86,10 @@ public class MainActivity extends Activity {
         builder = new AlertDialog.Builder(MainActivity.this);
         final AlertDialog dialog = builder.create();
 
-        ImageView img = new ImageView(getApplicationContext());
+        /*ImageView img = new ImageView(getApplicationContext());
         img.setImageResource(R.drawable.tagimg);
         img.setPadding(0, 15, 0, 15);
-        builder.setCustomTitle(img);
+        builder.setCustomTitle(img);*/
 
         final EditText input = new EditText(MainActivity.this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);

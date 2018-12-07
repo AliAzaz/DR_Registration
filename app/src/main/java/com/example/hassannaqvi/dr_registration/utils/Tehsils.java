@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Umeed-e-Nau on 12/21/2016.
  */
-public class VC {
+public class Tehsils {
 
     private static Multimap<String, String> data = HashMultimap.create();
 
@@ -69,7 +69,7 @@ public class VC {
 
         List<String> list = new ArrayList<>();
 
-        list.add("....");
+        list.add("Select");
         Collection<String> coll = data.get(district);
         for (String item : coll) {
             list.add(item);

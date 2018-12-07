@@ -30,7 +30,7 @@ public class Districts {
 
         List<String> list = new ArrayList<>();
 
-        list.add("....");
+        list.add("select");
         Collection<String> coll = data.get(province);
         for (String item : coll) {
             list.add(item);
