@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class HFContract {
+public class HFFormContract {
 
     private String projectName = "DR-Registration";
     private String surveyType = "BL";
@@ -35,10 +35,10 @@ public class HFContract {
     private String synced_date = "";
     private String appversion;
 
-    public HFContract() {
+    public HFFormContract() {
     }
 
-    public HFContract Sync(JSONObject jsonObject) throws JSONException {
+    public HFFormContract Sync(JSONObject jsonObject) throws JSONException {
         this.projectName = jsonObject.getString(HFTable.COLUMN_PROJECTNAME);
         this.surveyType = jsonObject.getString(HFTable.COLUMN_SURVEYTYPE);
         this._ID = jsonObject.getString(HFTable.COLUMN_ID);
@@ -68,7 +68,7 @@ public class HFContract {
 
     }
 
-    public HFContract Hydrate(Cursor cursor) {
+    public HFFormContract Hydrate(Cursor cursor) {
         this.projectName = cursor.getString(cursor.getColumnIndex(HFTable.COLUMN_PROJECTNAME));
         this.surveyType = cursor.getString(cursor.getColumnIndex(HFTable.COLUMN_SURVEYTYPE));
         this._ID = cursor.getString(cursor.getColumnIndex(HFTable.COLUMN_ID));
@@ -296,7 +296,7 @@ public class HFContract {
 
     public static abstract class HFTable implements BaseColumns {
 
-        public static final String TABLE_NAME = "HF";
+        public static final String TABLE_NAME = "hf_forms";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECTNAME = "projectname";
         public static final String COLUMN_SURVEYTYPE = "surveytype";

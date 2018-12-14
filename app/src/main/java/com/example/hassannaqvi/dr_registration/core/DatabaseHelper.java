@@ -11,6 +11,8 @@ import android.util.Log;
 
 import com.example.hassannaqvi.dr_registration.contracts.FormsContract;
 import com.example.hassannaqvi.dr_registration.contracts.FormsContract.FormsTable;
+import com.example.hassannaqvi.dr_registration.contracts.HealthFacContract;
+import com.example.hassannaqvi.dr_registration.contracts.HealthFacContract.singleHF;
 import com.example.hassannaqvi.dr_registration.contracts.LHWsContract;
 import com.example.hassannaqvi.dr_registration.contracts.LHWsContract.singleLHWs;
 import com.example.hassannaqvi.dr_registration.contracts.TehsilContract;
@@ -19,8 +21,6 @@ import com.example.hassannaqvi.dr_registration.contracts.UCsContract;
 import com.example.hassannaqvi.dr_registration.contracts.UCsContract.singleUCs;
 import com.example.hassannaqvi.dr_registration.contracts.UsersContract;
 import com.example.hassannaqvi.dr_registration.contracts.UsersContract.UsersTable;
-import com.example.hassannaqvi.dr_registration.contracts.VillagesContract;
-import com.example.hassannaqvi.dr_registration.contracts.VillagesContract.singleVillages;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -72,16 +72,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + FormsTable.TABLE_NAME;
 
 
-    private static final String SQL_DELETE_VILLAGES = "DROP TABLE IF EXISTS " + singleVillages.TABLE_NAME;
+    private static final String SQL_DELETE_HEALTH_FACILITIES = "DROP TABLE IF EXISTS " + singleHF.TABLE_NAME;
     private static final String SQL_DELETE_TEHSILS = "DROP TABLE IF EXISTS " + singleTehsil.TABLE_NAME;
     private static final String SQL_DELETE_UCS = "DROP TABLE IF EXISTS " + singleUCs.TABLE_NAME;
     private static final String SQL_DELETE_LHWs = "DROP TABLE IF EXISTS " + singleLHWs.TABLE_NAME;
-    final String SQL_CREATE_VILLAGES = "CREATE TABLE " + singleVillages.TABLE_NAME + "("
-//                + singleVillages.COLUMN_ID + " TEXT,"
-            + singleVillages.COLUMN_VILLAGE_NAME + " TEXT,"
-            + singleVillages.COLUMN_UC_CODE + " TEXT,"
-//                + singleVillages.COLUMN_TEHSIL_NAME + " TEXT,"
-            + singleVillages.COLUMN_VILLAGE_CODE + " TEXT );";
+    final String SQL_CREATE_HEALTH_FACTILITIES = "CREATE TABLE " + singleHF.TABLE_NAME + "("
+            + singleHF.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + singleHF.COLUMN_HF_NAME + " TEXT,"
+            + singleHF.COLUMN_HF_TYPE + " TEXT,"
+            + singleHF.COLUMN_HF_DISTRICT_NAME + " TEXT,"
+            + singleHF.COLUMN_HF_PROVINCE_NAME + " TEXT,"
+            + singleHF.COLUMN_HF_UC_NAME + " TEXT,"
+            + singleHF.COLUMN_HF_UEN_CODE + " TEXT,"
+            + singleHF.COLUMN_HF_TEHSIL_NAME + " TEXT );";
     final String SQL_CREATE_LHWS = "CREATE TABLE " + singleLHWs.TABLE_NAME + "("
             + singleLHWs.COLUMN_LHW_NAME + " TEXT,"
             + singleLHWs.COLUMN_HF_CODE + " TEXT,"
@@ -110,10 +113,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
 
-        db.execSQL(SQL_CREATE_VILLAGES);
-        db.execSQL(SQL_CREATE_TEHSILS);
+        db.execSQL(SQL_CREATE_HEALTH_FACTILITIES);
+        /*db.execSQL(SQL_CREATE_TEHSILS);
         db.execSQL(SQL_CREATE_UCS);
-        db.execSQL(SQL_CREATE_LHWS);
+        db.execSQL(SQL_CREATE_LHWS);*/
 
     }
 
@@ -121,37 +124,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_FORMS);
-
-        db.execSQL(SQL_DELETE_VILLAGES);
-        db.execSQL(SQL_DELETE_TEHSILS);
-        db.execSQL(SQL_DELETE_UCS);
-        db.execSQL(SQL_DELETE_LHWs);
+        db.execSQL(SQL_DELETE_HEALTH_FACILITIES);
     }
 
 
-    public Collection<VillagesContract> getVillages(String uccode) {
+    public Collection<HealthFacContract> getVillages(String uccode) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-//                singleVillages.COLUMN_ID,
-                singleVillages.COLUMN_VILLAGE_NAME,
-                singleVillages.COLUMN_UC_CODE,
-//                singleVillages.COLUMN_TEHSIL_NAME,
-                singleVillages.COLUMN_VILLAGE_CODE,
+                singleHF.COLUMN_ID,
+                singleHF.COLUMN_HF_NAME,
+                singleHF.COLUMN_HF_TYPE,
+                singleHF.COLUMN_HF_DISTRICT_NAME,
+                singleHF.COLUMN_HF_TEHSIL_NAME,
+                singleHF.COLUMN_HF_PROVINCE_NAME,
+                singleHF.COLUMN_HF_UC_NAME,
+                singleHF.COLUMN_HF_UEN_CODE,
         };
 
-        String whereClause = singleVillages.COLUMN_UC_CODE + " =?";
+        String whereClause = singleHF.COLUMN_HF_TYPE + " =?";
         String[] whereArgs = {uccode};
         String groupBy = null;
         String having = null;
 
         String orderBy =
-                singleVillages.COLUMN_VILLAGE_NAME + " ASC";
+                singleHF.COLUMN_HF_NAME + " ASC";
 
-        Collection<VillagesContract> allDC = new ArrayList<>();
+        Collection<HealthFacContract> allDC = new ArrayList<>();
         try {
             c = db.query(
-                    singleVillages.TABLE_NAME,  // The table to query
+                    singleHF.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -160,7 +162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                VillagesContract dc = new VillagesContract();
+                HealthFacContract dc = new HealthFacContract();
                 allDC.add(dc.HydrateVillages(c));
             }
         } finally {
@@ -302,7 +304,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allDC;
     }
 
-
     public ArrayList<UsersContract> getAllUsers() {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<UsersContract> userList = null;
@@ -375,26 +376,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void syncVillages(JSONArray Villageslist) {
+    public void syncHF(JSONArray HFlist) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(singleVillages.TABLE_NAME, null, null);
+        db.delete(singleHF.TABLE_NAME, null, null);
         try {
-            JSONArray jsonArray = Villageslist;
+            JSONArray jsonArray = HFlist;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObjectCC = jsonArray.getJSONObject(i);
 
-                VillagesContract Vc = new VillagesContract();
+                HealthFacContract Vc = new HealthFacContract();
                 Vc.Sync(jsonObjectCC);
 
                 ContentValues values = new ContentValues();
 
-//                values.put(singleVillages.COLUMN_ID, Vc.getID());
-                values.put(singleVillages.COLUMN_VILLAGE_NAME, Vc.getVillagename());
-                values.put(singleVillages.COLUMN_UC_CODE, Vc.getUc_code());
-//                values.put(singleVillages.COLUMN_TEHSIL_NAME, Vc.getTehsil_name());
-                values.put(singleVillages.COLUMN_VILLAGE_CODE, Vc.getVillagecode());
+                values.put(singleHF.COLUMN_HF_NAME, Vc.getHf_name());
+                values.put(singleHF.COLUMN_HF_TYPE, Vc.getHf_type());
+                values.put(singleHF.COLUMN_HF_DISTRICT_NAME, Vc.getHf_dist_name());
+                values.put(singleHF.COLUMN_HF_TEHSIL_NAME, Vc.getHf_teh_name());
+                values.put(singleHF.COLUMN_HF_PROVINCE_NAME, Vc.getHf_prv_name());
+                values.put(singleHF.COLUMN_HF_UC_NAME, Vc.getHf_uc_name());
+                values.put(singleHF.COLUMN_HF_UEN_CODE, Vc.getHf_uen_code());
 
-                db.insert(singleVillages.TABLE_NAME, null, values);
+                db.insert(singleHF.TABLE_NAME, null, values);
             }
         } catch (Exception e) {
         } finally {
@@ -450,7 +453,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
     }
-
 
     public boolean Login(String username, String password) throws SQLException {
 
@@ -535,7 +537,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values);
         return newRowId;
     }
-
 
     public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -635,7 +636,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
-
     public Collection<FormsContract> getTodayForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -730,7 +730,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return alc;
         }
     }
-
 
     public int updatesA() {
         SQLiteDatabase db = this.getReadableDatabase();

@@ -1,12 +1,8 @@
 package com.example.hassannaqvi.dr_registration.core;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -17,13 +13,10 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.text.format.DateFormat;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.hassannaqvi.dr_registration.contracts.FormsContract;
 import com.example.hassannaqvi.dr_registration.utils.TypefaceUtil;
 
-import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,14 +24,12 @@ import java.util.Date;
 
 public class MainApp extends Application {
 
-
-    public static final String _IP = "43.245.131.159"; // Test PHP server
-    //    public static final String _IP = "f49461"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
-    public static final String _HOST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/leapsup/api/";
-    // public static final String TEST_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/leapsup/api/";
+    public static final String _IP = "43.245.131.159:" + _PORT; // Test PHP server
+    public static final String TEST_IP = "10.1.42.30"; // Test LINUX server
+    public static final String _HOST_URL = "http://" + MainApp.TEST_IP + "/uen/api/";
 
-    public static final String _UPDATE_URL = "http://" + MainApp._IP + ":" + MainApp._PORT + "/wfp_recruit_form/app/app-debug.apk";
+    public static final String _UPDATE_URL = "http://" + MainApp.TEST_IP + ":" + MainApp._PORT + "/wfp_recruit_form/app/app-debug.apk";
 
     public static final Integer MONTHS_LIMIT = 11;
     public static final Integer DAYS_LIMIT = 29;
