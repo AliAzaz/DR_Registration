@@ -16,20 +16,74 @@ import android.widget.Toast;
 
 import com.example.hassannaqvi.dr_registration.JSON.GeneratorClass;
 import com.example.hassannaqvi.dr_registration.R;
+import com.example.hassannaqvi.dr_registration.contracts.HealthFacContract;
+import com.example.hassannaqvi.dr_registration.contracts.HealthFacContract.ColumnsClass;
+import com.example.hassannaqvi.dr_registration.contracts.HealthFacContract.singleHF;
+import com.example.hassannaqvi.dr_registration.core.DatabaseHelper;
 import com.example.hassannaqvi.dr_registration.databinding.ActivityProvidersEnrollmentBinding;
-import com.example.hassannaqvi.dr_registration.utils.Districts;
 import com.example.hassannaqvi.dr_registration.validation.validatorClass;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Providers_Enrollment extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     ActivityProvidersEnrollmentBinding bi;
-    List<String> dataDistricts = new ArrayList<>();
-    List<String> dataUC = new ArrayList<>();
+    DatabaseHelper db;
+    Collection<HealthFacContract> colDATA;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setUI();
+        setUIListeners();
+        setInitialization();
+        setFunctionality();
+    }
+
+    public void setUI() {
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_providers__enrollment);
+        bi.setCallback(this);
+        db = new DatabaseHelper(this);
+    }
+
+    public void setUIListeners() {
+
+        bi.spProvince.setOnItemSelectedListener(this);
+        bi.spDistrict.setOnItemSelectedListener(this);
+        bi.spVillage.setOnItemSelectedListener(this);
+
+        bi.edWorking.addTextChangedListener(generalTextWatcher);
+
+    }
+
+    public void setInitialization() {
+        List<String> listPrv, listDist, listVil;
+        listPrv = new ArrayList<>();
+        listDist = new ArrayList<>();
+        listVil = new ArrayList<>();
+    }
+
+    public void setFunctionality() {
+
+//      Working on Province Populating data
+        colDATA = db.getHFData();
+        List<String> listPrv = new ArrayList<>();
+        listPrv.add("....");
+        for (HealthFacContract hf : colDATA) {
+            if (!listPrv.contains(hf.getHf_prv_name())) {
+                listPrv.add(hf.getHf_prv_name());
+            }
+        }
+        bi.spProvince.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listPrv));
+
+
+    }
+
 
     private TextWatcher generalTextWatcher = new TextWatcher() {
 
@@ -105,7 +159,6 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
         }
     };
 
-
     public void BtnContinue() {
         if (formValidation()) {
             SaveDraft();
@@ -116,18 +169,6 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
                 Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_providers__enrollment);
-        bi.setCallback(this);
-
-        bi.spProvince.setOnItemSelectedListener(this);
-        bi.spDistrict.setOnItemSelectedListener(this);
-
-        bi.edWorking.addTextChangedListener(generalTextWatcher);
     }
 
 
@@ -362,7 +403,6 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
         return validatorClass.EmptyCheckingContainer(this, bi.fldgrppe01);
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -370,20 +410,43 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
         switch (id) {
             case R.id.spProvince:
 
-                if (bi.spProvince.getSelectedItem().toString().equals("select"))
-                    break;
+                if (bi.spProvince.getSelectedItemPosition() == 0)
+                    return;
 
-                dataDistricts = Districts.get(bi.spProvince.getSelectedItem().toString());
-                ArrayAdapter<String> dataAdapterD = new ArrayAdapter<String>(this,
-                        android.R.layout.simple_spinner_item, dataDistricts);
+//              Working on District Populating data
+                colDATA = db.getHFData(new ColumnsClass(singleHF.COLUMN_HF_PROVINCE_NAME, bi.spProvince.getSelectedItem().toString()));
+                List<String> listDistrict = new ArrayList<>();
+                listDistrict.add("....");
+                for (HealthFacContract hf : colDATA) {
+                    if (!listDistrict.contains(hf.getHf_dist_name())) {
+                        listDistrict.add(hf.getHf_dist_name());
+                    }
+                }
+                bi.spDistrict.setAdapter(new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, listDistrict));
 
-                dataAdapterD.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                bi.spDistrict.setAdapter(dataAdapterD);
+                break;
 
-                bi.spDistrict.setSelection(0);
+            case R.id.spVillage:
+
+                if (bi.spDistrict.getSelectedItemPosition() == 0)
+                    return;
+
+//              Working on District Populating data
+                colDATA = db.getHFData(new ColumnsClass(singleHF.COLUMN_HF_PROVINCE_NAME, bi.spProvince.getSelectedItem().toString()),
+                        new ColumnsClass(singleHF.COLUMN_HF_DISTRICT_NAME, bi.spDistrict.getSelectedItem().toString()));
+                List<String> listVillages = new ArrayList<>();
+                listVillages.add("....");
+                for (HealthFacContract hf : colDATA) {
+                    if (!listVillages.contains(hf.getHf_uc_name())) {
+                        listVillages.add(hf.getHf_uc_name());
+                    }
+                }
+                bi.spVillage.setAdapter(new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item, listVillages));
+
                 break;
 
         }
+
     }
 
     @Override

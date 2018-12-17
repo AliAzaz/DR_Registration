@@ -35,7 +35,7 @@ public class HealthFacContract {
         return this;
     }
 
-    public HealthFacContract HydrateVillages(Cursor cursor) {
+    public HealthFacContract HydrateHF(Cursor cursor) {
         this.hf_type = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_TYPE));
         this.hf_dist_name = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_DISTRICT_NAME));
         this.hf_name = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_NAME));
@@ -43,6 +43,16 @@ public class HealthFacContract {
         this.hf_prv_name = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_PROVINCE_NAME));
         this.hf_uc_name = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_UC_NAME));
         this.hf_uen_code = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_UEN_CODE));
+        return this;
+    }
+
+    public HealthFacContract HydrateHF() {
+        this.hf_dist_name = "....";
+        this.hf_name = "....";
+        this.hf_teh_name = "....";
+        this.hf_prv_name = "....";
+        this.hf_uc_name = "....";
+        this.hf_uen_code = "....";
         return this;
     }
 
@@ -137,4 +147,22 @@ public class HealthFacContract {
         public static final String COLUMN_HF_UC_NAME = "hf_uc";
         public static final String COLUMN_HF_UEN_CODE = "hf_uen_code";
     }
+
+    public static class ColumnsClass {
+        private String columnName, columnClause;
+
+        public ColumnsClass(String columnName, String columnClause) {
+            this.columnName = columnName;
+            this.columnClause = columnClause;
+        }
+
+        public String getColumnName() {
+            return columnName;
+        }
+
+        public String getColumnClause() {
+            return columnClause;
+        }
+    }
+
 }

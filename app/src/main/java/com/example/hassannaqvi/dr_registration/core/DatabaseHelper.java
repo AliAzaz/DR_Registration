@@ -99,9 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private final String TAG = "DatabaseHelper";
 
-
     public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
-
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -127,8 +125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_HEALTH_FACILITIES);
     }
 
-
-    public Collection<HealthFacContract> getVillages(String uccode) {
+    public List<HealthFacContract> getHFData(HealthFacContract.ColumnsClass... columnsClass) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -142,15 +139,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 singleHF.COLUMN_HF_UEN_CODE,
         };
 
-        String whereClause = singleHF.COLUMN_HF_TYPE + " =?";
-        String[] whereArgs = {uccode};
+        String whereClause = null;
+        String[] whereArgs = null;
+
+        if (columnsClass.length > 0) {
+
+            whereClause = "";
+            whereArgs = new String[columnsClass.length];
+
+            for (byte i = 0; i < columnsClass.length; i++) {
+                whereClause += columnsClass[i].getColumnName() + " =?";
+                whereArgs[i] = columnsClass[i].getColumnClause();
+
+                if (columnsClass.length - 1 != i) {
+                    whereClause += " AND ";
+                }
+
+            }
+
+        }
+
         String groupBy = null;
         String having = null;
 
-        String orderBy =
-                singleHF.COLUMN_HF_NAME + " ASC";
+        String orderBy = singleHF.COLUMN_HF_NAME + " ASC";
 
-        Collection<HealthFacContract> allDC = new ArrayList<>();
+        List<HealthFacContract> allDC = new ArrayList<>();
+
         try {
             c = db.query(
                     singleHF.TABLE_NAME,  // The table to query
@@ -161,9 +176,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     having,                    // don't filter by row groups
                     orderBy                    // The sort order
             );
+
             while (c.moveToNext()) {
                 HealthFacContract dc = new HealthFacContract();
-                allDC.add(dc.HydrateVillages(c));
+                allDC.add(dc.HydrateHF(c));
             }
         } finally {
             if (c != null) {
