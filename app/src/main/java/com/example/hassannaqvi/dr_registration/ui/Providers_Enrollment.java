@@ -426,7 +426,7 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
 
                 break;
 
-            case R.id.spVillage:
+            case R.id.spDistrict:
 
                 if (bi.spDistrict.getSelectedItemPosition() == 0)
                     return;
