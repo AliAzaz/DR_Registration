@@ -43,8 +43,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 
-import im.dino.dbinspector.activities.DbInspectorActivity;
-
 import static com.example.hassannaqvi.dr_registration.ui.LoginActivity.db;
 
 
@@ -325,11 +323,6 @@ public class MainActivity extends Activity {
                 });
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
-    }
-
-    public void openDB(View v) {
-        Intent dbmanager = new Intent(getApplicationContext(), DbInspectorActivity.class);
-        startActivity(dbmanager);
     }
 
     public void uploadData() {

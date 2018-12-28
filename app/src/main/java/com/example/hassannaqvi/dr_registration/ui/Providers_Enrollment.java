@@ -44,13 +44,13 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
         setFunctionality();
     }
 
-    public void setUI() {
+    private void setUI() {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_providers__enrollment);
         bi.setCallback(this);
         db = new DatabaseHelper(this);
     }
 
-    public void setUIListeners() {
+    private void setUIListeners() {
 
         bi.spProvince.setOnItemSelectedListener(this);
         bi.spDistrict.setOnItemSelectedListener(this);
@@ -60,7 +60,7 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
 
     }
 
-    public void setFunctionality() {
+    private void setFunctionality() {
 
 //      Working on Province Populating data
         colDATA = db.getHFData();
@@ -155,7 +155,8 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
         if (formValidation()) {
             SaveDraft();
             if (UpdateDB()) {
-                startActivity(new Intent(getApplicationContext(), EndingActivity.class)
+                startActivity(new Intent(getApplicationContext(), !bi.edWorking.getText().toString().isEmpty() ? HFacilityActivity.class : EndingActivity.class)
+                        .putExtra("hf_count", Integer.valueOf(bi.edWorking.getText().toString()))
                         .putExtra("complete", true));
             } else {
                 Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
