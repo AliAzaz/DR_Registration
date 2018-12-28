@@ -58,6 +58,26 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
 
 //        bi.edWorking.addTextChangedListener(generalTextWatcher);
 
+        bi.edWorking.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (!bi.edWorking.getText().toString().isEmpty())
+                    bi.btnPrSubmit.setText("NEXT SECTION");
+                else
+                    bi.btnPrSubmit.setText("END SECTION");
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
     }
 
     private void setFunctionality() {

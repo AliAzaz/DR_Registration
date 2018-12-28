@@ -44,8 +44,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10sp"
-                    app:cardCornerRadius="8dp"
                     android:visibility="gone"
+                    app:cardCornerRadius="8dp"
                     app:cardElevation="8dp">
 
                     <LinearLayout
@@ -61,8 +61,8 @@
                             android:id="@+id/ed_pmdc_no"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="12345-A"
                             android:digits="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            android:hint="12345-A"
                             app:met_mask="#####-#" />
 
                     </LinearLayout>
@@ -400,7 +400,7 @@
                         style="@style/Button_Next"
                         android:layout_margin="10dp"
                         android:onClick="@{() -> callback.BtnContinue()}"
-                        android:text="Submit" />
+                        android:text="END SECTION" />
 
                 </android.support.v7.widget.CardView>
 
