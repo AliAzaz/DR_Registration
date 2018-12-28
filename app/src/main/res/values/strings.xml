@@ -47,8 +47,8 @@
     <string name="istatusb">نا مکمل</string>
     <string name="istatusc">انکار کردیا</string>
     <string name="istatusd">گھر بند ہے</string>
-    <string name="nextSection">ايندڙ سيڪشن</string>
-    <string name="end_interview">ختم ڪيو</string>
+    <string name="nextSection">NEXT SECTION</string>
+    <string name="end_interview">CANCEL</string>
     <string name="addMember">افراد کا اندراج</string>
 
     <!--Form 01-->

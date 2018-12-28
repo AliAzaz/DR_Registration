@@ -165,7 +165,6 @@
         android:layout_margin="3dp"
         android:orientation="horizontal">
 
-
         <Button
             android:id="@+id/btn_cncl"
             style="@style/Button_collder"

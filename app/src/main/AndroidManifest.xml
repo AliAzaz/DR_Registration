@@ -59,7 +59,8 @@
             android:name=".ui.InfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
-        <activity android:name=".ui.Providers_Enrollment"></activity>
+        <activity android:name=".ui.Providers_Enrollment" />
+        <activity android:name=".ui.HFacilityActivity"></activity>
     </application>
 
 </manifest>

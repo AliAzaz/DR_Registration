@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.HFacilityActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callback"
+            type="com.example.hassannaqvi.dr_registration.ui.HFacilityActivity" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.HFacilityActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="18dp"
+            android:text="Health Facilities Information"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- Login progress -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView style="@style/Q_CardView">
+
+                    <LinearLayout style="@style/Q_Linerlayout_v">
+
+                        <LinearLayout
+                            android:id="@+id/llProvinceHF"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5sp"
+                            android:background="@color/hitnscolor"
+                            android:weightSum="2">
+
+                            <TextView
+                                style="@style/TextView"
+                                android:layout_weight="1"
+                                android:text="Province"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spProvinceHF"
+                                style="@style/EditText_Name"
+                                android:layout_weight="1"
+                                android:background="@color/hitnscolor1"
+                                android:entries="@array/spProvince"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llDistrictHF"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5sp"
+                            android:background="@color/hitnscolor"
+                            android:weightSum="2">
+
+                            <TextView
+                                style="@style/TextView"
+                                android:layout_weight="1"
+                                android:text="District"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spDistrictHF"
+                                style="@style/EditText_Name"
+                                android:layout_weight="1"
+                                android:background="@color/hitnscolor1"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llTehsilHF"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5sp"
+                            android:background="@color/hitnscolor"
+                            android:weightSum="2">
+
+                            <TextView
+                                style="@style/TextView"
+                                android:layout_weight="1"
+                                android:text="Tehsil"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spTehsilHF"
+                                style="@style/EditText_Name"
+                                android:layout_weight="1"
+                                android:background="@color/hitnscolor1"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llUC"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5sp"
+                            android:background="@color/hitnscolor"
+                            android:weightSum="2">
+
+                            <TextView
+                                style="@style/TextView"
+                                android:layout_weight="1"
+                                android:text="Union Council"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spUC"
+                                style="@style/EditText_Name"
+                                android:layout_weight="1"
+                                android:background="@color/hitnscolor1"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llFacilityName"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5sp"
+                            android:background="@color/hitnscolor"
+                            android:weightSum="2">
+
+                            <TextView
+                                style="@style/TextView"
+                                android:layout_weight="1"
+                                android:text="Facility Name"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/spFacilityName"
+                                style="@style/EditText_Name"
+                                android:layout_weight="1"
+                                android:background="@color/hitnscolor1"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <!--End-->
+                <android.support.v7.widget.CardView style="@style/cardView">
+
+                    <LinearLayout
+                        style="@style/linerlayout_view"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_Continue"
+                            style="@style/button"
+                            android:layout_marginRight="10dp"
+                            android:onClick="@{() -> callback.BtnContinue()}"
+                            android:text="@string/nextSection" />
+
+                        <Button
+                            android:id="@+id/btn_End"
+                            style="@style/button"
+                            android:layout_marginRight="10dp"
+                            android:onClick="@{() -> callback.BtnEnd()}"
+                            android:text="@string/end_interview"
+                            android:textColor="@color/dullWhile" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

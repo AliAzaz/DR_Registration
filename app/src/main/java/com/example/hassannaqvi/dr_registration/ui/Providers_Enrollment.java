@@ -41,7 +41,6 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
 
         setUI();
         setUIListeners();
-        setInitialization();
         setFunctionality();
     }
 
@@ -57,15 +56,8 @@ public class Providers_Enrollment extends AppCompatActivity implements AdapterVi
         bi.spDistrict.setOnItemSelectedListener(this);
         bi.spVillage.setOnItemSelectedListener(this);
 
-        bi.edWorking.addTextChangedListener(generalTextWatcher);
+//        bi.edWorking.addTextChangedListener(generalTextWatcher);
 
-    }
-
-    public void setInitialization() {
-        List<String> listPrv, listDist, listVil;
-        listPrv = new ArrayList<>();
-        listDist = new ArrayList<>();
-        listVil = new ArrayList<>();
     }
 
     public void setFunctionality() {
