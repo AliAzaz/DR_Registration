@@ -324,12 +324,6 @@
                             android:hint="@string/edWorking"
                             android:maxLength="1" />
 
-                        <EditText
-                            android:id="@+id/edWorking1"
-                            style="@style/EditText_number"
-                            android:hint="@string/edWorking"
-                            android:maxLength="1" />
-
                     </LinearLayout>
 
                 </android.support.v7.widget.CardView>
