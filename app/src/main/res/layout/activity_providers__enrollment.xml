@@ -328,65 +328,6 @@
 
                 </android.support.v7.widget.CardView>
 
-                <!--<LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <Button
-                        android:id="@+id/syncDevice"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/colorPrimary"
-                        android:onClick="syncDevice"
-                        android:text="Download Data"
-                        android:textColor="@color/white" />
-
-                    <Button
-                        android:id="@+id/downloadApp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/red"
-                        android:text="DOWNLOAD APP"
-                        android:textColor="@color/white"
-                        android:visibility="gone" />
-
-                    <Button
-                        android:id="@+id/updateApp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="16dp"
-                        android:background="@color/colorPrimary"
-                        android:onClick="updateApp"
-                        android:text="Update App"
-                        android:textColor="@color/white"
-                        android:visibility="gone" />
-
-                    &lt;!&ndash;<Button
-                        android:id="@+id/openDB"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="16dp"
-                        android:onClick="openDB"
-                        android:text="Open Database Manager" />&ndash;&gt;
-
-                    <Button
-                        android:id="@+id/testGPS"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:layout_marginTop="16dp"
-                        android:onClick="testGPS"
-                        android:text="Test GPS Coordinates" />
-                </LinearLayout>-->
-
                 <android.support.v7.widget.CardView
                     android:id="@+id/cv7"
                     android:layout_width="match_parent"
